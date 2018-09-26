@@ -58,7 +58,13 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  document.addEventListener('keypress', function (e){
+    keyValue = e.key;
+    console.log(keyValue.toUpperCase().charCodeAt(0));
+    //play the associated sound
 
+    //assign class to associated data-key div
+  });
 </script>
 
 
