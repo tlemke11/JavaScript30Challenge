@@ -59,11 +59,24 @@
 
 <script>
   document.addEventListener('keypress', function (e){
-    keyValue = e.key;
-    console.log(keyValue.toUpperCase().charCodeAt(0));
+    keyValue = e.key.toUpperCase().charCodeAt(0);
+    console.log(keyValue);
     //play the associated sound
+      let keyButtonPressedElement =  document.querySelector("div[data-key='"+keyValue+"']");
+      keyButtonPressedElement.classList.add('playing');
 
+    document.querySelector("audio[data-key='"+keyValue+"']").play()
+        .then(
+          function(){
+            setTimeout(
+              function(){
+                keyButtonPressedElement.setAttribute("class", "key");
+              },
+              70
+            )}
+        );
     //assign class to associated data-key div
+
   });
 </script>
 
