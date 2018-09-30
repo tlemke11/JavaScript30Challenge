@@ -31,12 +31,44 @@
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+    //function example
+    function filterPeopleBornInSixteenthCentury(inventors){
+      let bornInSixteenthCentury = people.filter(
+              function callbackGetIfBornInSixteenCentury(person){
+                if(person.year < 1600 && person.year > 1499){
+                  return person;
+                }
+      }) 
+      return bornInSixteenthCentury;
+    }
+    //cool kid example
+    const InventorsBornFifteenHundreds = inventors.filter(inventors => inventors.year < 1600 && inventors.year > 1499);
+    console.dir(filterPeopleBornInSixteenthCentury(inventors));
+    console.dir(InventorsBornFifteenHundreds);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
+    //function example
+    function returnFirstAndLastName(inventors){
+      return inventors.map(
+        function callbackGetNames(inventor){
+          return inventor.first + " " + inventor.last;
+        }
+      )
+    }
+    //coolkid example
+    const inventorsNames = inventors.map(inventor => inventor.first + " " + inventor.last);
+
+    console.dir(returnFirstAndLastName(inventors));
+    console.dir(inventorsNames);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    //function example
+    function sortPeopleByYoungestDate(){
+      return "";
+    }
+
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
