@@ -65,13 +65,39 @@
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
     //function example
-    function sortPeopleByYoungestDate(){
-      return "";
+    function sortPeopleByYoungestDate(inventors){
+      return inventors.sort(
+        function callbackCompareDates(a, b){
+        return b.year - a.year
+      });
     }
+    console.table(sortPeopleByYoungestDate(inventors));
+    
+    //coolkid example
+    const sortedByYoungestInventor = inventors.sort((a,b) => b.year - a.year);
 
+    console.table(sortedByYoungestInventor);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
+
+    //function example
+    function calculateTotalLivingYearsFromPeople(inventors){
+      return inventors.reduce( function callbackCalculateYearsAlive(accumulator, currentValue, currentIndex, array){
+        return accumulator + (currentValue.passed - currentValue.year);
+      }, 0); 
+    } 
+
+    console.log("Total Years Lived of all Inventors: " + calculateTotalLivingYearsFromPeople(inventors));
+
+    //coolkid example
+
+    const totalInventorLivingYears = inventors.reduce((accumulator, currentValue) => {
+      return accumulator + (currentValue.passed - currentValue.year);
+      }, 0);
+
+    console.log("Total Years Lived of all Inventors: " + totalInventorLivingYears);
+
 
     // 5. Sort the inventors by years lived
 
