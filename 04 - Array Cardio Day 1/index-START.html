@@ -111,14 +111,54 @@
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
+    //basically a copy from the video
+    // const boulevardsInParis = Array.from(document.querySelector('.mw-category').querySelectorAll('a'));
+    // const boulevardsInParisContainDe = boulevardsInParis
+    //                                     .map( links => links.textContent)
+    //                                     .filter( streetName => streetName.includes('de'));
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    //cool kid example
+    //mildly inefficient if there are many duplicates
+    const lastNameSortedPeople = people.sort( (a,b) => {
+      if (a < b){
+        return -1;
+      } else {
+        return 1
+      }
+    });
+
+    console.log(lastNameSortedPeople);
+
+
+    //video example for doing a legit split
+    const lastNameSort = people.sort( (a,b ) => {
+      let [aLast, aFirst] = a.split(', ');
+      let [bLast, bFirst] = b.split(', ');
+      if(aLast > bLast){
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+
+    console.log(lastNameSort);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    
+    const sumUpInstance = data.reduce(function(obj, item){
+      if(!obj[item]){
+        obj[item] = 0;
+      }
+      obj[item]++; 
+      return obj;
+    }, {});
+
+    console.log(sumUpInstance)
+
 
   </script>
 </body>
